@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import PasswordInput from "../../components/Input/PasswordInput";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { validateEmail } from "../../utils/helper";
 
 const SignUp = () => {
@@ -19,63 +19,67 @@ const SignUp = () => {
             return;
         }
 
-        if (!validateEmail(email)){
-            setError("Please enter a valid email address.")
+        if (!validateEmail(email)) {
+            setError("Please enter a valid email address.");
             return;
-
-    };
+        }
 
         if (!password) {
-            setError("Please Enter the Password");
+            setError("Please enter the password");
             return;
-        };
+        }
 
-        setError('')
+        setError('');
+        // Call the sign-up API
     };
 
     return (
-    <>
-      <Navbar />
+        <>
+            {/* Apply the TV frame to the entire screen */}
+            <div className="tv-frame">
+                <Navbar />
 
-        <div className="flex items-center justify-center mt-28">
-            <div className="w-96 border rounded bg-white px-7 py-10">
-                <form onSubmit={handleSignUp}>
-                    <h4 className="text-2xl mb-7">SignUp</h4>
+                <div className="flex items-center justify-center mt-20">
+                    {/* Updated with a 15px thick blue border like the login page */}
+                    <div className="w-96 border-[15px] border-blue-900 rounded bg-white px-7 py-10">
+                        <form onSubmit={handleSignUp}>
+                            <h4 className="text-2xl mb-7">Sign Up</h4>
 
-                    <input
-                        type="text"
-                        placeholder="Name"
-                        className="input-box"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                className="input-box"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
 
-                    <input
-                     type="text"
-                     placeholder="Email"
-                     className="input-box"
-                     value={email}
-                     onChange={(e) => setEmail(e.target.value)}
-                     />
+                            <input
+                                type="text"
+                                placeholder="Email"
+                                className="input-box"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
 
-                    <PasswordInput
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    /> 
+                            <PasswordInput
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
 
-                    {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
+                            {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
 
-                    <button type="submit" className="btn-primary">
-                        Create Account
-                        </button>
+                            <button type="submit" className="btn-primary">
+                                Create Account
+                            </button>
 
-                        <p className="text-sm text-center mt-4">
-                            Already Have an account?{" "}
-                            <Link to="/login" className="font-medium text-primary underline">
-                                Login 
+                            <p className="text-sm text-center mt-4">
+                                Already have an account?{" "}
+                                <Link to="/login" className="font-medium text-primary underline">
+                                    Login
                                 </Link>
-                        </p>
-                    </form>
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </>

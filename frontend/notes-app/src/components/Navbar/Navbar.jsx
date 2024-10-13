@@ -12,28 +12,26 @@ const Navbar = () => {
         navigate("/login");
     };
 
-        const handleSearch =() => {
-
-        };
+    const handleSearch = () => {
+        // Handle the search functionality
+    };
 
     const onClearSearch = () => {
         setSearchQuery("");
     };
 
     return (
-        <div className="bg-white flex items-center justify-between px-6 py-2 drop-shadow">
-            <h2 className="text-xl font-medium text-black py-2 ">Notes</h2>
+        <div className="bg-white flex items-center justify-between px-6 py-2 drop-shadow border-[15px] border-blue-800">
+            <h2 className="text-xl font-medium text-black py-2">Notes</h2>
         
-        <SearchBar 
-            value={searchQuery}
-            onChange={({ target }) => 
-                {setSearchQuery(target.value)
-            }}
-            handleSearch={handleSearch}
-            onClearSearch={onClearSearch}
-        />
+            <SearchBar 
+                value={searchQuery}
+                onChange={({ target }) => setSearchQuery(target.value)}
+                handleSearch={handleSearch}
+                onClearSearch={onClearSearch}
+            />
  
-        <ProfileInfo onLogout={onLogout}/>
+            <ProfileInfo onLogout={onLogout}/>
         </div>
     );
 };

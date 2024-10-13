@@ -6,29 +6,76 @@
 
 @layer base {
     html {
-        font-family: "Press Start 2P", "sans-serif";
+        font-family: 'Press Start 2P', sans-serif; /* Retro pixelated font */
     }
 
-    body { 
-        background-color: #fdfeff;
-        overflow-x: hidden;
+    body {
+        background-image: url(https://i.imgur.com/uGRFZEs.jpeg); /* Replace with your image URL */
+        background-size: cover; /* Cover the entire screen */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent tiling */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
     }
+
+    .tv-frame {
+        background-image: url(https://i.imgur.com/uGRFZEs.jpeg); /* Replace with your image URL */
+        background-size: contain; /* This will resize the image to fit inside the frame */
+        background-position: center; /* Center the image within the frame */
+        background-repeat: no-repeat;
+
+        background-color: none; /* Dark background inside the TV */
+        padding: 40px; /* Inner padding to give space inside the TV */
+        border: 30px solid #888888; /* Thick grey border resembling an old TV frame */
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8); /* A subtle shadow to give depth */
+        
+        /* Make it full-screen */
+        position: fixed; 
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1; /* Ensure it's behind the content */
+    }
+    
+    
 }
 
-@layer components{
-    .input-box{
-        @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none;
+@layer components {
+    /* Retro-styled Input Box */
+    .input-box {
+        background: #000000; /* Dark background for retro feel */
+        color: #00ff00; /* Green text */
+        border: 2px solid #00ff00; /* Green borders for input boxes */
+        padding: 10px;
+        font-size: 12px; /* Smaller, blocky font for retro style */
+        margin-bottom: 20px;
+        outline: none;
+        width: 100%; /* Full width to match screen size */
     }
 
+    /* Retro-styled Button */
     .btn-primary {
-        @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-blue-600;
+        background: linear-gradient(to bottom, #0055ff, #0022bb); /* Retro gradient */
+        color: #ffffff;
+        border: 2px solid #000000; /* Black border for buttons */
+        padding: 10px 20px;
+        font-size: 12px;
+        cursor: pointer;
+        text-transform: uppercase;
+        width: 100%; /* Full width button */
+        margin-top: 10px;
     }
 
-    .icon-btn{
-        @apply text-xl text-slate-300 cursor-pointer hover:text-primary;
-    }
-
+    /* Retro-styled Input Label */
     .input-label {
-        @apply text-xs text-slate-400;
+        color: #00ff00; /* Green text for labels */
+        text-transform: uppercase;
+        font-size: 10px; /* Small, retro font size */
+        margin-bottom: 5px;
+        display: block;
     }
 }
