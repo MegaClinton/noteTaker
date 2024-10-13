@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "../../components/Navbar/Navbar";
+import PasswordInput from "../../components/Input/PasswordInput";
+import {Link} from "react-router-dom";
+import { validateEmail } from "../../utils/helper";
 
 const SignUp = () => {
 
@@ -8,11 +11,30 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
-    const handleSIgnUP = async (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
+
+        if (!name) {
+            setError("Please enter your name");
+            return;
+        }
+
+        if (!validateEmail(email)){
+            setError("Please enter a valid email address.")
+            return;
+
     };
+
+        if (!password) {
+            setError("Please Enter the Password");
+            return;
+        };
+
+        setError('')
+    };
+
     return (
-        <>
+    <>
       <Navbar />
 
         <div className="flex items-center justify-center mt-28">
@@ -20,16 +42,15 @@ const SignUp = () => {
                 <form onSubmit={handleSignUp}>
                     <h4 className="text-2xl mb-7">SignUp</h4>
 
-
                     <input
                         type="text"
                         placeholder="Name"
                         className="input-box"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        />
+                    />
 
-<input
+                    <input
                      type="text"
                      placeholder="Email"
                      className="input-box"
@@ -38,9 +59,22 @@ const SignUp = () => {
                      />
 
                     <PasswordInput
-                        value={assword}
+                        value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        /> 
+                    /> 
+
+                    {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
+
+                    <button type="submit" className="btn-primary">
+                        Create Account
+                        </button>
+
+                        <p className="text-sm text-center mt-4">
+                            Already Have an account?{" "}
+                            <Link to="/login" className="font-medium text-primary underline">
+                                Login 
+                                </Link>
+                        </p>
                     </form>
                 </div>
             </div>
