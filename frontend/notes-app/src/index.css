@@ -20,26 +20,22 @@
         height: 100vh;
         margin: 0;
     }
+    
 
     .tv-frame {
-        background-image: url(https://i.imgur.com/uGRFZEs.jpeg); /* Replace with your image URL */
-        background-size: contain; /* This will resize the image to fit inside the frame */
-        background-position: center; /* Center the image within the frame */
-        background-repeat: no-repeat;
-
         background-color: none; /* Dark background inside the TV */
         padding: 40px; /* Inner padding to give space inside the TV */
         border: 30px solid #888888; /* Thick grey border resembling an old TV frame */
         box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8); /* A subtle shadow to give depth */
-        
         /* Make it full-screen */
-        position: fixed; 
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         z-index: -1; /* Ensure it's behind the content */
     }
+    
     
     
 }
