@@ -23,9 +23,7 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.json({ data: "hello" });
-});
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 //Backend Ready
 
