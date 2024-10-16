@@ -23,7 +23,7 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => res.redirect("/dashboard"));
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 //Backend Ready
 
